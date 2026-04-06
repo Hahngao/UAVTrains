@@ -9,5 +9,6 @@
 - [硬件选项](hardware_options.md)
 - [快速启动](quickstart.md)
 - [入门实验步骤](入门实验步骤/readme.md)
+- [赛题训练记录](赛题训练记录/readme.md)
 - [文档维护教程](githelp.md)
 - [进度记录](progress.md)
