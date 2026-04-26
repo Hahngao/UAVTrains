@@ -13,7 +13,7 @@ KCF（Kernelized Correlation Filters）算法是一种基于相关滤波（Corre
 
 ### 2.1 使用nomachine连接飞机（同先前实验）
 ### 2.2 程序文件
-在/Home/Download/object tracking/sh文件夹，其中start.sh是开启相机和mavros（与地面站进行通信的节点）的脚本
+在/Home/Download/object_tracking/sh文件夹，其中start.sh是开启相机和mavros（与地面站进行通信的节点）的脚本
 ### 2.3. 终端中运行命令
 ```bash
   ./start.sh
@@ -33,3 +33,18 @@ KCF（Kernelized Correlation Filters）算法是一种基于相关滤波（Corre
   python3 test.py
 ```
 然后在打开的窗口中框选要跟踪的物体
+
+## 3.问题与调参
+### 3.1 问题
+发现追踪效果并不是特别好，需要满足以下要求：背景单一不含有复杂pattern，物品有足够明显的特征，无人机运动足够慢（不能让相机产生运动模糊）
+### 3.2 参数
+```python
+params=cv2.TrackerKCF_Params()
+params.interp_factor=0.02
+params.__setattr__("lambda",0.001)
+params.detect_thresh=0.7
+tracker = cv2.TrackerKCF_create(params)
+```
+interp_factor:适当调大对快速变化目标响应迅速
+lambda:调大对运动模糊的物体的识别效果有提升
+detect_thresh:置信度阈值
