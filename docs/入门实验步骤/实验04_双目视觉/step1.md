@@ -254,6 +254,14 @@ A3：这是因为文件可能是从 windows里面放进去的，没有权限。�
 
 ![image](pics/step1_pics/image18.jpeg)
 
+Q4:运行d435i的双目ROS节点的时候报错无法启动节点
+
+A4：可以尝试使用
+```bash
+sudo apt install ros-$ROS_DISTRO-realsense2-camera
+```
+安装最新的d435i驱动
+
 
 
 <center>图 17 赋予权限</center>
